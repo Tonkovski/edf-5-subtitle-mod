@@ -1,0 +1,64 @@
+# EDF5 Subtitle Mod — Editing Conventions
+
+## File Format
+- Each line: CUENAME=subtitle text
+- Edit ONLY what is right of the = sign
+- The cuename is UNTOUCHABLE — one wrong character breaks the subtitle lookup in-game
+- Never insert or delete lines — total must stay at 17,698
+
+## Line Count
+- Verify with `wc -l` before starting each batch and after finishing
+- Target: 17,698 lines at all times
+
+## Language
+- Target: Traditional Chinese (繁體中文)
+- Convert ALL Simplified characters to Traditional
+- No mixed scripts
+
+## Punctuation
+- CJK punctuation ONLY: ，。！？……～ etc.
+- No ASCII punctuation (, . ! ? ...)
+- Every line MUST end with a punctuation mark — bare lines get 。 or ！ at minimum
+- Defaults:
+  - Battle cries / exclamations → ！ (majority — soldiers on the front line)
+  - Commands / neutral tone → 。 (only for off-battlefield chatter or calm statements)
+  - Murmuring / self-talk → ……
+- When in doubt between ！ and 。: if the speaker is in combat or pumped up, use ！
+
+## STT Correction Method
+- Errors are PHONETIC — TW Mandarin accent + tone sandhi
+- Correct by sound, not meaning
+- Adjacent sounds are fair game (e.g. b→d)
+- Distant sounds → flag, do not guess
+- Never substitute a word just because it "makes more sense"
+
+## Duplicates
+- Duplicate or near-duplicate lines = same voice line recorded by different voice actors
+- Cross-reference ALL variants before editing any of them
+- Reconstruct the intended sentence from the full set
+
+## Reference Files
+- dict.txt — authoritative EDF term list (unit names, weapons, callsigns, equipment)
+  Use this before guessing any game-specific term
+- unrecognized.txt — log for unresolvable lines
+  Format: line_number→content (reason/note)
+  When in doubt, flag here — do not guess
+
+## unrecognized.txt Triage
+- If a line was guessed mainly by meaning rather than pronunciation, leave it in unrecognized.txt
+- If a line contains an unrecognized term or name, STOP and wait for manual listening / user confirmation
+- If a line is a similar-pronunciation guess and the result is sensible enough, keep the subtitle text and remove that entry from unrecognized.txt
+- When accepting a line from unrecognized.txt, never change subtitles.txt line count
+
+## Context
+- Speakers: soldiers, military officers, generals (majority)
+- Small portion: panicking civilians
+- Line types: battle cries, commands, casual chatter, callsigns
+
+## Workflow Per Batch (1000 lines) — ONE SHOT, NO RERUNS
+1. Read the full batch first (all 1000 lines in one pass)
+2. Fix everything in that pass: Simplified→Traditional, punctuation, STT errors, bare lines
+3. Edit subtitle text only — never touch cuenames
+4. Flag unresolvable lines to unrecognized.txt
+5. Verify line count = 17,698 after batch
+6. Mark batch done — do NOT return to it
