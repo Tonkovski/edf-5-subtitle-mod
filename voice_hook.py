@@ -34,7 +34,7 @@ TEXT_GAP_Y = 8
 FONT_FACE = "Microsoft JhengHei UI"
 FONT_POINT_SIZE = 24
 FONT_WEIGHT_BOLD = 700
-SUBTITLE_STACK_MAX = 5
+SUBTITLE_STACK_MAX = 3
 
 IS_WINDOWS = sys.platform.startswith("win")
 

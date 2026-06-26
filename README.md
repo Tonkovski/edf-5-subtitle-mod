@@ -38,7 +38,7 @@ Cue names ending in `_E` are normalised to the base key before lookup.
 
 ## Overlay
 
-- Up to **5 subtitles** stacked simultaneously; oldest-expiring slot evicted when full
+- Up to **3 subtitles** stacked simultaneously; oldest-expiring slot evicted when full
 - Radio dialogue — yellow (`#FFF0A6`)
 - NPC ambient — blue (`#8FE7FF`)
 - Click-through, non-activating, anchored to the game monitor
