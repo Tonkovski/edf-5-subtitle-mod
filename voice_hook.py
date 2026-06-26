@@ -15,8 +15,8 @@ import time
 from ctypes import wintypes
 from pathlib import Path
 
-SUBTITLE_PATH = Path(__file__).with_name("subtitles.txt")
-CUE_LENGTH_PATH = Path(__file__).with_name("cuelength.txt")
+SUBTITLE_PATH = Path("subtitles.txt")
+CUE_LENGTH_PATH = Path("cuelength.txt")
 FALLBACK_DISPLAY_MS = 4500
 MIN_DISPLAY_MS = 2200
 TAIL_PADDING_MS = 450
